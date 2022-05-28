@@ -1,16 +1,5 @@
 # Live Social Distance Monitoring and Face Mask Detection AI Solution for Covid-19
 
-## Tata Innoverse Solver Hunt 8 Hackathon
-
-This project proposes a computer vision based AI system to check whether social distancing is being maintained in crowded place or at any place (eg: market, or workplace) coupled with Mask detection system to track people who are wearing masks. This solution can be used in CCTV cameras and other video surveillance systems. While the data; such as the number of people in the vicinity, the number of people violating social distancing, and not wearing face-masks; has been used for analysis.
-
-### PPT Link
-
-https://docs.google.com/presentation/d/143uw9pyfjKG6BDC5sh027k6rjDnt070WOMoGKmyUMY8/edit?usp=sharing
-
-### Article Link
-
-https://medium.com/@jaskirat_singh/social-distance-monitoring-and-face-mask-detection-ai-system-for-covid-19-6044073896d8
 
 ### Results
 
@@ -103,12 +92,12 @@ Also before starting you need to make sure that the path to various files and fo
 [Dual Shot Face Detector](https://github.com/Tencent/FaceDetection-DSFD) (DSFD) is used throughout the project for detecting faces. Common Face Detectors such as the Haar-Cascades or the MTCNN are not efficient in this particular use-case as they are not able to detect faces that are covered or have low-resolution. DSFD is also good in detecting faces in wide range of orientations. It is bit heavy on the pipeline, but produces accurate results.
 
 ### Face Mask Classifier
-A slighly modified ResNet50 model (with base layers pretrained on imagenet) is used for classifying whether a face is masked properly or not. Combination of some AveragePooling2D and Dense (with dropout) layers ending with a Sigmoid or Softmax classifier is appended on top of the base layers. Different architectures can be used for the purpose, however complex ones should be avoided to reduce overfitting. The model needs to be trained on tons of relevant data before we can apply it in real-time and expect it to work. It needs a lot of computational power and I mean a lot! We can try our models trained on a small dataset in our local machines, but it would not produce desirable results. Therefore I used pretrained open-source models for now. So we use the model trained by the team of [Thang Pham](https://github.com/aome510/Mask-Classifier) for this purpose. It is basically a ResNet50 Model with a modified top.
+A slighly modified ResNet50 model (with base layers pretrained on imagenet) is used for classifying whether a face is masked properly or not. Combination of some AveragePooling2D and Dense (with dropout) layers ending with a Sigmoid or Softmax classifier is appended on top of the base layers. Different architectures can be used for the purpose, however complex ones should be avoided to reduce overfitting. The model needs to be trained on tons of relevant data before we can apply it in real-time and expect it to work. It needs a lot of computational power and I mean a lot! We can try our models trained on a small dataset in our local machines, but it would not produce desirable results. Therefore I used pretrained open-source models for now. So we use the model trained by the team of  It is basically a ResNet50 Model with a modified top.
 
-Implementation details can be found in this [notebook](https://github.com/jaskirat111/Social-Distancing-Analyser-and-Mask-Monitoring-AI-system-wrt-Covid-19/blob/master/Social_Distancing_Monitor_Face_mask_Detection.ipynb). 
+ 
 
 
 ### Future Scope
-Some optimizations can be made in the form of vectorization. For getting the position of a person, there are various approaches. One of them being simply using the centers of the bounding boxes, the one used in this project. Other one is using OpenCV's perspective transform to get a bird's eye view of the positions, but that kind of needs pretty accurate frame of reference points. Using it also increases the complexity of the system by a bit. However if implemented correctly, it will no doubt produce better results. For now we stick to the first approach. Remember, there's always scope for improvements!
+ Remember, there's always scope for improvements!
 
 
